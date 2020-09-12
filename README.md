@@ -11,11 +11,12 @@ Stateless Pihole with exporter sidecar pod for easy scale-out in Kubernetes
 NOTE: Depending on your Ingress Controller/ LB, observed IP may not be supported for UDP types which will cause the grafana dashboard to report invalid data.
 
 ## How to Install
-All the manifests are kustomized template.
-- Just modify the overlay (PROD) values
+All manifests are kustomized template.
+- Just modify the overlay values in prod directory
 - Apply with
-'''
-kubectl apply -k PROD/
-'''
+```
+kubectl apply -k prod/
+```
 
-## Use the following grafana dashboard
+## Grafana dashboard
+Import the K8s-PI-Hole-dashboard.json for the modified dashboard to accomodate multiple pod replicas.
