@@ -1,0 +1,7 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole
+spec:
+  replicas: 2

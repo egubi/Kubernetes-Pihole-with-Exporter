@@ -1,0 +1,11 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole
+spec:
+  template:
+    metadata:
+      labels:
+        app: pihole
+        name: pihole-pr

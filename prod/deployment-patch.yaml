@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole
+spec:
+  template:
+    spec:
+      containers:
+      - name: pihole
+        env:
+        - name: TZ
+          value: Asia/Manila
+
+        - name: WEBPASSWORD
+          value: VMware1!
+
+        - name: VIRTUAL_HOST
+          value: pihole.pr.ldc.int
+        
+        - name: DNS1
+          value: 1.1.1.1
+
+        - name: DNS2
+          value: 8.8.8.8
+        
+        - name: CONDITIONAL_FORWARDING
+          value: 'true'
+        
+        - name: CONDITIONAL_FORWARDING_DOMAIN
+          value: ldc.int
+
+        - name: CONDITIONAL_FORWARDING_IP
+          value: 192.168.0.100
+        

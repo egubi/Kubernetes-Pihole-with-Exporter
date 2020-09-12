@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-dns-tcp
+  namespace: pihole
+  annotations:
+        metallb.universe.tf/allow-shared-ip: "pihole"
+spec:
+  ports:
+  - protocol: TCP
+    name: web
+    port: 80
+    targetPort: 80
+
+  - protocol: TCP
+    name: dns-tcp
+    port: 53
+    targetPort: 53
+    
+  type: LoadBalancer
+  externalTrafficPolicy: Local
+  loadBalancerIP: 172.16.10.210
+  selector:
+    app: pihole
